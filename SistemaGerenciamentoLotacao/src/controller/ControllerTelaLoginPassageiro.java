@@ -3,9 +3,12 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import exception.ExceptionPassageiro;
 import model.bo.PassageiroBo;
 import model.vo.BaseDadosPassageiro;
+import model.vo.FluxoDados;
 import model.vo.Passageiro;
 import view.CadastroPassageiro;
 import view.DashBoardPassageiro;
@@ -46,10 +49,33 @@ public class ControllerTelaLoginPassageiro {
 				}
 			}
 			if(e.getSource() == tela.getBtnEsqueci()) {
+				String nome,sobrenome,cpf,senha,senha2;
+				nome = JOptionPane.showInputDialog("Digite o seu nome: ");
+				sobrenome = JOptionPane.showInputDialog("Digite o seu sobrenome: ");
+				cpf = JOptionPane.showInputDialog("Digite o seu cpf: ");
+				Passageiro passageiro = passageiroBO.consultarCpf(cpf);
+				if(passageiro!=null) {
+					if(passageiro.getNome().equals(nome) && passageiro.getSobrenome().equals(sobrenome)) {
+						while(true) {
+							senha = JOptionPane.showInputDialog("Digite a sua nova senha: ");
+							senha2 = JOptionPane.showInputDialog("Digite a sua senha novamente: ");
+							if(senha.equals(senha2)) {
+								passageiro.setSenha(senha);
+								FluxoDados.SalvarPassageiro();
+								Mensagens.mensagem("Senha alterado com sucesso!");
+								break;
+							}else {
+								JOptionPane.showMessageDialog(null, "As senhas não coincidem!");
+							}
+						}
+					}else {
+						JOptionPane.showMessageDialog(null, "Dados incorretos!");
+					}
+				}
 				
 			}
 			if(e.getSource() == tela.getBtnEntrar()) {
-				try {
+				
 					for(Passageiro p:passageiroBO.consultarTodos()) {
 						if(p.getLogin().equals(tela.getLoginTxt().getText()) && p.getSenha().equals(tela.getSenhaTxt().getText())) {
 							BaseDadosPassageiro.setAutenticado(p);
@@ -65,10 +91,7 @@ public class ControllerTelaLoginPassageiro {
 							Mensagens.mensagem("Login ou senha incorreto!");
 						}
 					}
-				} catch (ExceptionPassageiro e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				 
 			}
 			
 		}}

@@ -9,12 +9,16 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.Dom4JDriver;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+
+
 public class FluxoDados {
 	
 	public static void SalvarPassageiro() {
 		
 		try {
 			XStream xStream = new XStream(new DomDriver());
+			xStream.alias("Viagens", Viagem.class);
+			xStream.aliasField("Viagens", Viagem.class, "Viagem");
 			File file = new File("src/passageiro.xml");
 			if(!file.exists()) {
 				file.createNewFile();

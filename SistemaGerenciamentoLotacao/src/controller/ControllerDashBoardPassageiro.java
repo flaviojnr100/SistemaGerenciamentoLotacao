@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
+import java.util.Observable;
 
 import javax.swing.SwingUtilities;
 
@@ -22,7 +23,7 @@ import view.EditarPassageiro;
 import view.Mensagens;
 import view.TelaLoginPassageiro;
 
-public class ControllerDashBoardPassageiro {
+public class ControllerDashBoardPassageiro extends Observable {
 	private DashBoardPassageiro tela;
 	private ViagemBo viagemBO;
 	private PassageiroBo passageiroBo;
@@ -52,6 +53,10 @@ public class ControllerDashBoardPassageiro {
 		tela.getTcViagem().getBtnBuscar().addActionListener(new BotoesConsultar());
 		tela.getTcViagem().getBtnVoltar().addActionListener(new BotoesConsultar());
 		
+		tela.getTcViagem().getjMenuInformacoes().addActionListener(new Caixa());
+		tela.getTcViagem().getjMenuReservarVaga().addActionListener(new Caixa());
+		tela.getTcViagem().getjMenuSair().addActionListener(new Caixa());
+		
 	}
 	private class Botoes implements ActionListener{
 
@@ -65,6 +70,8 @@ public class ControllerDashBoardPassageiro {
 				tela.getePassageiro().setVisible(false);
 			}
 			if(e.getSource() == tela.getBtnInicio()) {
+				limparDadosPassageiroViagens();
+				colocarPassageiroViagens();
 				tela.getiPassageiro().setVisible(true);
 				tela.getePassageiro().setVisible(false);
 				tela.getTcViagem().setVisible(false);
@@ -87,6 +94,7 @@ public class ControllerDashBoardPassageiro {
 			if(e.getSource() == tela.getBtnFazerLogoff()) {
 				
 				if(Mensagens.mensagemConfirmacao("Você deseja sair do sistema?")) {
+					FluxoDados.SalvarPassageiro();
 					tela.setVisible(false);
 					tLogin.setVisible(true);
 				}
@@ -94,6 +102,7 @@ public class ControllerDashBoardPassageiro {
 			
 			if(e.getSource() == tela.getBtnSair()) {
 				if(Mensagens.mensagemConfirmacao("Você deseja sair do sistema ?"))
+					FluxoDados.SalvarPassageiro();
 					System.exit(0);
 				
 				
@@ -101,8 +110,21 @@ public class ControllerDashBoardPassageiro {
 			}
 			
 		}}
-	
-	private void colocarDados() {
+	private void colocarPassageiroViagens() {
+		int i=0;
+		for(Viagem v:BaseDadosPassageiro.getAutenticado().getViagens()) {
+			tela.getiPassageiro().getjTableViagens().getModel().setValueAt(v.getDestino(), i, 0);
+			tela.getiPassageiro().getjTableViagens().getModel().setValueAt(v.getHora(), i, 1);
+			i++;
+		}
+	}
+	private void limparDadosPassageiroViagens() {
+		for(int i=0;i<BaseDadosPassageiro.getAutenticado().getViagens().size()+1;i++) {
+			tela.getiPassageiro().getjTableViagens().getModel().setValueAt("", i, 0);
+			tela.getiPassageiro().getjTableViagens().getModel().setValueAt("", i, 1);
+		}
+	}
+	public void colocarDados() {
 		
 		try {
 			int i=0;
@@ -122,7 +144,7 @@ public class ControllerDashBoardPassageiro {
 			e.printStackTrace();
 		}
 	}
-	private void limparDados() {
+	public void limparDados() {
 		try {
 			
 			for(int i=0;i<viagemBO.consultarTodos().size()+1;i++) {
@@ -137,7 +159,7 @@ public class ControllerDashBoardPassageiro {
 		}
 	}
 	
-	private class Caixa implements MouseListener{
+	private class Caixa implements MouseListener,ActionListener{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -174,6 +196,33 @@ public class ControllerDashBoardPassageiro {
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == tela.getTcViagem().getjMenuInformacoes()) {
+				
+			}
+			if(e.getSource() == tela.getTcViagem().getjMenuReservarVaga()) {
+				try {
+					if(Mensagens.mensagemConfirmacao("Você deseja reservar uma vaga?")) {
+						if(passageiroBo.reservarVaga(BaseDadosPassageiro.getAutenticado(), viagemBO.consultarTodos().get(tela.getTcViagem().getTable().getSelectedRow()))) {
+							Mensagens.mensagem("Passagem reservado com sucesso!");
+							setChanged();
+							notifyObservers(tela.getTcViagem().getjMenuReservarVaga());
+						}else {
+							Mensagens.mensagem("Erro ao reservar uma vaga!");
+						}
+					}
+				} catch (ExceptionViagem e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(e.getSource() == tela.getTcViagem().getjMenuSair()) {
+				tela.getBtnInicio().doClick();
+			}
 			
 		}
 		
@@ -235,5 +284,12 @@ public class ControllerDashBoardPassageiro {
 			}
 			
 		}}
+	public DashBoardPassageiro getTela() {
+		return tela;
+	}
+	public void setTela(DashBoardPassageiro tela) {
+		this.tela = tela;
+	}
+	
 }
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.vo.BaseDadosPassageiro;
 import model.vo.Passageiro;
+import model.vo.Viagem;
 
 public class PassageiroDao {
 	public PassageiroDao() {
@@ -39,6 +40,12 @@ public class PassageiroDao {
 	public boolean editar(Passageiro passageiroAntigo,Passageiro passageiroNovo) {
 		this.removerCpf(passageiroAntigo.getCpf());
 		this.cadastrar(passageiroNovo);
+		return true;
+	}
+	
+	public boolean reservarVaga(Passageiro passageiro,Viagem viagem) {
+		passageiro.getViagens().add(viagem);
+		viagem.setVagas(viagem.getVagas()-1);
 		return true;
 	}
 	

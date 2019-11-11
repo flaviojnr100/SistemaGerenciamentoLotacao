@@ -31,7 +31,7 @@ public class ControllerCadastroPassageiro {
 		public void actionPerformed(ActionEvent e) {
 			
 			if(e.getSource() == tela.getBtnCadastrar()) {
-				try {
+				
 					if(tela.getSenhaTxt().getText().equals(tela.getConfirmarSenhaTxt().getText())) {
 						if(passageiroBO.cadastrar(new Passageiro(tela.getNomeTxt().getText(), tela.getSobrenomeTxt().getText(), tela.getCpfTxt().getText(), tela.getEmailTxt().getText(), tela.getTelefoneTxt().getText(), tela.getLoginTxt().getText(), tela.getSenhaTxt().getText()))) {
 							Mensagens.mensagem("Cadastro realizado com sucesso!");
@@ -44,10 +44,7 @@ public class ControllerCadastroPassageiro {
 					}else {
 						Mensagens.mensagem("Erro, as senhas não coincidem!");
 					}
-				} catch (ExceptionPassageiro e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				 
 				
 			}
 			if(e.getSource() == tela.getBtnLimpar()) {

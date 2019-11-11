@@ -31,11 +31,11 @@ public class App {
 		CadastroPassageiro cPassageiro = new CadastroPassageiro();
 		TelaLoginPassageiro loginPassageiro = new TelaLoginPassageiro();
 		
-		new ControllerDashBoardPassageiro(dashPassageiro,loginPassageiro);
+		ControllerDashBoardPassageiro cDash = new ControllerDashBoardPassageiro(dashPassageiro,loginPassageiro);
 		new ControllerCadastroPassageiro(cPassageiro);
 		new ControllerTelaLoginPassageiro(loginPassageiro,cPassageiro,dashPassageiro);
 		loginPassageiro.setVisible(true);
-	
+		cDash.addObserver(cDash.getTela().getTcViagem());
 		
 
 	}

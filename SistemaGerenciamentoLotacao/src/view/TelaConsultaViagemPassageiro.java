@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -17,7 +19,9 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-public class TelaConsultaViagemPassageiro extends JPanel{
+import controller.ControllerDashBoardPassageiro;
+
+public class TelaConsultaViagemPassageiro extends JPanel implements Observer{
 
 	private JPanel contentPane;
 	private JPanel panel;
@@ -181,6 +185,18 @@ public class TelaConsultaViagemPassageiro extends JPanel{
 
 	public JMenuItem getjMenuSair() {
 		return jMenuSair;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		if(arg0 instanceof ControllerDashBoardPassageiro && arg1.equals(((ControllerDashBoardPassageiro)arg0).getTela().getTcViagem().getjMenuReservarVaga())) {
+			ControllerDashBoardPassageiro obj =((ControllerDashBoardPassageiro)arg0); 
+			
+			obj.limparDados();
+			obj.colocarDados();
+			
+		}
+		
 	}
 	
 	
