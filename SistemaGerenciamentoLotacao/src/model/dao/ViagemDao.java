@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.vo.BaseDadosViagem;
 import model.vo.Passageiro;
 import model.vo.Viagem;
-import sun.util.calendar.BaseCalendar.Date;
+
 
 public class ViagemDao {
 
@@ -17,7 +17,7 @@ public class ViagemDao {
 		return BaseDadosViagem.getViagens().add(viagem);
 	}
 	
-	public boolean editar(Viagem viagemAntiga, Viagem viagemNova) {
+	/*public boolean editar(Viagem viagemAntiga, Viagem viagemNova) {
 		for(Viagem atual : BaseDadosViagem.getViagens()) {
 			if(atual.getData().equals(viagemAntiga.getData())
 					&&
@@ -34,16 +34,16 @@ public class ViagemDao {
 		
 		return false;
 	}
-	
-	public boolean remover(Passageiro cliente) {
+	*/
+/*	public boolean remover(Passageiro cliente) {
 		Viagem viagem = consultar(cliente);
 		if(viagem != null) {
 			return BaseDadosViagem.getViagens().remove(viagem);
 		}
 		return false;
 	}
-	
-	public Viagem consultar(Passageiro cliente) {
+	*/
+/*	public Viagem consultar(Passageiro cliente) {
 		for(Viagem atual : BaseDadosViagem.getViagens()) {
 			if(atual.getPassageiro().getCpf().equals(cliente.getCpf())){
 				return atual;
@@ -51,7 +51,7 @@ public class ViagemDao {
 		}
 		return null;
 	}
-	
+	*/
 	public ArrayList<Viagem> consultarTodos(){
 		return BaseDadosViagem.getViagens();
 	}

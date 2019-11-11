@@ -30,9 +30,7 @@ public class ViagemBo {
 		
 		if(viagem.getDestino().length() == 0
 				&&
-				viagem.getLocalizacao().length() == 0
-				&&
-				viagem.getPassageiro().getCpf().length() == 0
+				viagem.getMotorista().getCpf().length() == 0
 				) {
 			return false;
 		}

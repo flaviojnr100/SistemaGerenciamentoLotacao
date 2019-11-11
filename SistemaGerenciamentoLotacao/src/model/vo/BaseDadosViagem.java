@@ -9,5 +9,10 @@ public class BaseDadosViagem {
 	public static ArrayList<Viagem> getViagens() {
 		return viagens;
 	}
+
+	public static void setViagens(ArrayList<Viagem> viagens) {
+		BaseDadosViagem.viagens = viagens;
+	}
+	
 	
 }

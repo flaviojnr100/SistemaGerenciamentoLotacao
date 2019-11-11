@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class EditarPassageiro extends JFrame {
+public class EditarPassageiro extends JPanel {
 	private JLabel lblNome;
 	private JLabel lblSobrenome;
 	private JLabel lblCpf;
@@ -39,129 +40,146 @@ public class EditarPassageiro extends JFrame {
 	
 	
 	public EditarPassageiro() {
-		super("Tela de cadastro");
-		setLocation(600,150);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
-		setUndecorated(true);
-		setSize(400,330);
+		
+		setLocation(10,120);
+		
+		
+		setSize(540,560);
 		setLayout(null);
 		
 		fundoP = new JPanel();
 		fundoP.setLayout(null);
-		fundoP.setSize(400, 330);
+		fundoP.setSize(540, 560);
 		fundoP.setLocation(0, 0);
 		fundoP.setBorder(javax.swing.border.LineBorder.createGrayLineBorder());
 		fundoP.setBackground(Color.white);
 		
 		dadosP = new JPanel();
 		dadosP.setLayout(null);
-		dadosP.setSize(370, 160);
-		dadosP.setLocation(15, 5);
+		dadosP.setSize(480, 220);
+		dadosP.setLocation(30, 20);
 		dadosP.setBackground(Color.white);
+		
 		dadosP.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados:"));
 		
 		lblNome = new JLabel("Nome:");
-		lblNome.setSize(50, 10);
-		lblNome.setLocation(10, 30);
+		lblNome.setSize(50, 14);
+		lblNome.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblNome.setLocation(20, 30);
 		dadosP.add(lblNome);
 		
 		nomeTxt = new JTextField(20);
 		nomeTxt.setSize(200, 20);
-		nomeTxt.setLocation(120, 30);
+		nomeTxt.setLocation(145, 30);
 		dadosP.add(nomeTxt);
 		
 		lblSobrenome = new JLabel("Sobrenome:");
-		lblSobrenome.setSize(70, 10);
-		lblSobrenome.setLocation(10, 55);
+		lblSobrenome.setSize(98, 14);
+		lblSobrenome.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblSobrenome.setLocation(20, 60);
 		dadosP.add(lblSobrenome);
 		
 		sobrenomeTxt = new JTextField(20);
 		sobrenomeTxt.setSize(200, 20);
-		sobrenomeTxt.setLocation(120, 55);
+		sobrenomeTxt.setLocation(145, 60);
 		dadosP.add(sobrenomeTxt);
 		
 		lblCpf = new JLabel("CPF:");
-		lblCpf.setSize(70, 10);
-		lblCpf.setLocation(10, 80);
+		lblCpf.setSize(50, 14);
+		lblCpf.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblCpf.setLocation(20, 90);
 		dadosP.add(lblCpf);
 		
 		cpfTxt = new JTextField(20);
 		cpfTxt.setSize(200, 20);
-		cpfTxt.setLocation(120, 80);
+		cpfTxt.setLocation(145, 90);
 		dadosP.add(cpfTxt);
 		
 		lblEmail = new JLabel("Email:");
-		lblEmail.setSize(70, 10);
-		lblEmail.setLocation(10, 105);
+		lblEmail.setSize(50, 14);
+		lblEmail.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblEmail.setLocation(20, 120);
 		dadosP.add(lblEmail);
 		
 		emailTxt = new JTextField(20);
 		emailTxt.setSize(200, 20);
-		emailTxt.setLocation(120, 105);
+		emailTxt.setLocation(145, 120);
 		dadosP.add(emailTxt);
 		
 		lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setSize(70, 10);
-		lblTelefone.setLocation(10, 130);
+		lblTelefone.setSize(70, 14);
+		lblTelefone.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblTelefone.setLocation(20, 150);
 		dadosP.add(lblTelefone);
 		
 		telefoneTxt = new JTextField(20);
 		telefoneTxt.setSize(200, 20);
-		telefoneTxt.setLocation(120, 130);
+		telefoneTxt.setLocation(145, 150);
 		dadosP.add(telefoneTxt);
 		
 		autenticarP = new JPanel();
 		autenticarP.setLayout(null);
-		autenticarP.setSize(370, 120);
-		autenticarP.setLocation(15, 165);
+		autenticarP.setSize(480, 160);
+		autenticarP.setLocation(30, 280);
 		autenticarP.setBackground(Color.white);
 		autenticarP.setBorder(javax.swing.BorderFactory.createTitledBorder("Autenticação:"));
 		
 		
 		lblLogin = new JLabel("Login:");
-		lblLogin.setSize(60, 10);
-		lblLogin.setLocation(10, 40);
+		lblLogin.setSize(50, 14);
+		lblLogin.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblLogin.setLocation(20, 40);
 		autenticarP.add(lblLogin);
 		
 		loginTxt = new JTextField(20);
 		loginTxt.setSize(200, 20);
-		loginTxt.setLocation(120, 40);
+		loginTxt.setLocation(145, 40);
 		autenticarP.add(loginTxt);
 		
 		lblSenha = new JLabel("Senha:");
-		lblSenha.setSize(70, 12);
-		lblSenha.setLocation(10, 65);
+		lblSenha.setSize(50, 14);
+		lblSenha.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblSenha.setLocation(20, 70);
 		autenticarP.add(lblSenha);
 		
 		senhaTxt = new JPasswordField(20);
 		senhaTxt.setSize(200, 20);
-		senhaTxt.setLocation(120, 65);
+		senhaTxt.setLocation(145, 70);
 		autenticarP.add(senhaTxt);
 		
 		lblConfirmarSenha = new JLabel("Confirme a senha:");
-		lblConfirmarSenha.setSize(110, 20);
-		lblConfirmarSenha.setLocation(10, 87);
+		lblConfirmarSenha.setSize(130, 14);
+		lblConfirmarSenha.setFont(new Font("Century Gothic",Font.BOLD,14));
+		lblConfirmarSenha.setLocation(20, 100);
 		autenticarP.add(lblConfirmarSenha);
 		
 		confirmarSenhaTxt = new JPasswordField(20);
 		confirmarSenhaTxt.setSize(200, 20);
-		confirmarSenhaTxt.setLocation(120, 90);
+		confirmarSenhaTxt.setLocation(145, 100);
 		autenticarP.add(confirmarSenhaTxt);
 		
-		btnEditar = new JButton("Editar");
-		btnEditar.setSize(100, 35);
-		btnEditar.setLocation(20, 288);
+		btnEditar = new JButton("Salvar");
+		btnEditar.setSize(100, 40);
+		btnEditar.setLocation(60, 480);
+		btnEditar.setForeground(Color.WHITE);
+		btnEditar.setFont(new Font("Century Gothic",Font.BOLD,14));
+		btnEditar.setBackground(new Color(51, 51, 51));
 		fundoP.add(btnEditar);
 		
 		btnLimpar = new JButton("Limpar");
-		btnLimpar.setSize(100, 35);
-		btnLimpar.setLocation(150, 288);
+		btnLimpar.setSize(100, 40);
+		btnLimpar.setLocation(220, 480);
+		btnLimpar.setForeground(Color.WHITE);
+		btnLimpar.setFont(new Font("Century Gothic",Font.BOLD,14));
+		btnLimpar.setBackground(new Color(51, 51, 51));
 		fundoP.add(btnLimpar);
 		
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setSize(100, 35);
-		btnCancelar.setLocation(280, 288);
+		btnCancelar.setSize(100, 40);
+		btnCancelar.setLocation(370, 480);
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setFont(new Font("Century Gothic",Font.BOLD,14));
+		btnCancelar.setBackground(new Color(51, 51, 51));
 		fundoP.add(btnCancelar);
 		
 		fundoP.add(dadosP);
@@ -258,9 +276,7 @@ public class EditarPassageiro extends JFrame {
 	}
 
 
-	public void setBtnEditar(JButton btnEditar) {
-		this.btnEditar = btnEditar;
-	}
+	
 
 
 	public JButton getBtnLimpar() {
@@ -282,8 +298,6 @@ public class EditarPassageiro extends JFrame {
 		this.btnCancelar = btnCancelar;
 	}
 
-public static void main(String[] args) {
-	new EditarPassageiro().setVisible(true);
-}
+
 	
 }

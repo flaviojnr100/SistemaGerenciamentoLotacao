@@ -9,5 +9,10 @@ public class BaseDadosMotorista {
     public static ArrayList<Motorista> getMotoristas() {
         return motoristas;
     }
+
+	public static void setMotoristas(ArrayList<Motorista> motoristas) {
+		BaseDadosMotorista.motoristas = motoristas;
+	}
+    
     
 }

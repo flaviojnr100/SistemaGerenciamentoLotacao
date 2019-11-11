@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<list>
+  <model.vo.Passageiro>
+    <nome>Flavio</nome>
+    <sobrenome>Junior</sobrenome>
+    <cpf>12345678912</cpf>
+    <email>sdfgsdgsdg</email>
+    <telefone>52543534534</telefone>
+    <login>flaviojr12</login>
+    <senha>123</senha>
+    <viagens/>
+  </model.vo.Passageiro>
+</list>

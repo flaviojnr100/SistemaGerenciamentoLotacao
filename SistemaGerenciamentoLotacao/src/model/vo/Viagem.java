@@ -1,45 +1,83 @@
 package model.vo;
 
-import sun.util.calendar.BaseCalendar.Date;
+
 
 public class Viagem {
 
-	private Date data;
-	private Passageiro passageiro;
-	private String localizacao;
+	private String data;
+	private Motorista motorista;
 	private String destino;
+	private String hora;
+	private String local;
+	private double valor;
+	private int vagas;
 	
-	public Viagem(Date data, Passageiro passageiro, String localizacao, String destino) {
+	
+	
+	public Viagem(String data, Motorista motorista, String destino,String hora,String local, double valor, int vagas) {
 		super();
 		this.data = data;
-		this.passageiro = passageiro;
-		this.localizacao = localizacao;
+		this.motorista = motorista;
+		this.local = local;
+		this.hora = hora;
 		this.destino = destino;
+		this.valor = valor;
+		this.vagas = vagas;
 	}
 	
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
-	public Passageiro getPassageiro() {
-		return passageiro;
-	}
-	public void setPassageiro(Passageiro passageiro) {
-		this.passageiro = passageiro;
-	}
-	public String getLocalizacao() {
-		return localizacao;
-	}
-	public void setLocalizacao(String localizacao) {
-		this.localizacao = localizacao;
-	}
+	
+	
 	public String getDestino() {
 		return destino;
 	}
 	public void setDestino(String destino) {
 		this.destino = destino;
+	}
+
+	public Motorista getMotorista() {
+		return motorista;
+	}
+
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public int getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(int vagas) {
+		this.vagas = vagas;
+	}
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
 	}
 	
 	

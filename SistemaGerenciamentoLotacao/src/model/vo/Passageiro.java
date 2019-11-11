@@ -1,7 +1,10 @@
 package model.vo;
 
-public class Passageiro extends Pessoa {
+import java.util.ArrayList;
 
+public class Passageiro extends Pessoa {
+	
+	private ArrayList<Viagem> viagens = new ArrayList<>();
 	public Passageiro(String nome, String sobrenome, String cpf, String email, String telefone, String login,
 			String senha) {
 		super(nome, sobrenome, cpf, email, telefone, login, senha);
@@ -12,6 +15,11 @@ public class Passageiro extends Pessoa {
 		super(login, senha);
 		// TODO Auto-generated constructor stub
 	}
+
+	public ArrayList<Viagem> getViagens() {
+		return viagens;
+	}
+	
 	
 
 }

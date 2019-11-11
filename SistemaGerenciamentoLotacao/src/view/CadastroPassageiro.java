@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,11 +32,13 @@ public class CadastroPassageiro extends JFrame {
 	private JPanel dadosP;
 	private JPanel autenticarP;
 	private JPanel fundoP;
+	private JPanel tituloP;
 	
 	private JButton btnCadastrar;
 	private JButton btnLimpar;
 	private JButton btnCancelar;
 	
+	private JLabel lblTitulo;
 	
 	
 	public CadastroPassageiro() {
@@ -44,12 +47,12 @@ public class CadastroPassageiro extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setUndecorated(true);
-		setSize(400,330);
+		setSize(400,410);
 		setLayout(null);
 		
 		fundoP = new JPanel();
 		fundoP.setLayout(null);
-		fundoP.setSize(400, 330);
+		fundoP.setSize(400, 410);
 		fundoP.setLocation(0, 0);
 		fundoP.setBorder(javax.swing.border.LineBorder.createGrayLineBorder());
 		fundoP.setBackground(Color.white);
@@ -57,113 +60,141 @@ public class CadastroPassageiro extends JFrame {
 		dadosP = new JPanel();
 		dadosP.setLayout(null);
 		dadosP.setSize(370, 160);
-		dadosP.setLocation(15, 5);
+		dadosP.setLocation(15, 70);
 		dadosP.setBackground(Color.white);
 		dadosP.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados:"));
 		
 		lblNome = new JLabel("Nome:");
-		lblNome.setSize(50, 10);
+		lblNome.setSize(50, 15);
+		lblNome.setFont(new Font("Century Gothic", 0, 14));
 		lblNome.setLocation(10, 30);
 		dadosP.add(lblNome);
 		
 		nomeTxt = new JTextField(20);
 		nomeTxt.setSize(200, 20);
-		nomeTxt.setLocation(120, 30);
+		nomeTxt.setLocation(140, 30);
 		dadosP.add(nomeTxt);
 		
 		lblSobrenome = new JLabel("Sobrenome:");
-		lblSobrenome.setSize(70, 10);
+		lblSobrenome.setSize(90, 15);
+		lblSobrenome.setFont(new Font("Century Gothic", 0, 14));
 		lblSobrenome.setLocation(10, 55);
 		dadosP.add(lblSobrenome);
 		
 		sobrenomeTxt = new JTextField(20);
 		sobrenomeTxt.setSize(200, 20);
-		sobrenomeTxt.setLocation(120, 55);
+		sobrenomeTxt.setLocation(140, 55);
 		dadosP.add(sobrenomeTxt);
 		
 		lblCpf = new JLabel("CPF:");
-		lblCpf.setSize(70, 10);
+		lblCpf.setSize(70, 15);
+		lblCpf.setFont(new Font("Century Gothic", 0, 14));
 		lblCpf.setLocation(10, 80);
 		dadosP.add(lblCpf);
 		
 		cpfTxt = new JTextField(20);
 		cpfTxt.setSize(200, 20);
-		cpfTxt.setLocation(120, 80);
+		cpfTxt.setLocation(140, 80);
 		dadosP.add(cpfTxt);
 		
 		lblEmail = new JLabel("Email:");
-		lblEmail.setSize(70, 10);
+		lblEmail.setSize(70, 15);
+		lblEmail.setFont(new Font("Century Gothic", 0, 14));
 		lblEmail.setLocation(10, 105);
 		dadosP.add(lblEmail);
 		
 		emailTxt = new JTextField(20);
 		emailTxt.setSize(200, 20);
-		emailTxt.setLocation(120, 105);
+		emailTxt.setLocation(140, 105);
 		dadosP.add(emailTxt);
 		
 		lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setSize(70, 10);
+		lblTelefone.setSize(70, 15);
+		lblTelefone.setFont(new Font("Century Gothic", 0, 14));
 		lblTelefone.setLocation(10, 130);
 		dadosP.add(lblTelefone);
 		
 		telefoneTxt = new JTextField(20);
 		telefoneTxt.setSize(200, 20);
-		telefoneTxt.setLocation(120, 130);
+		telefoneTxt.setLocation(140, 130);
 		dadosP.add(telefoneTxt);
 		
 		autenticarP = new JPanel();
 		autenticarP.setLayout(null);
 		autenticarP.setSize(370, 120);
-		autenticarP.setLocation(15, 165);
+		autenticarP.setLocation(15, 230);
 		autenticarP.setBackground(Color.white);
 		autenticarP.setBorder(javax.swing.BorderFactory.createTitledBorder("Autenticação:"));
 		
 		
 		lblLogin = new JLabel("Login:");
-		lblLogin.setSize(60, 10);
+		lblLogin.setSize(60, 15);
+		lblLogin.setFont(new Font("Century Gothic", 0, 14));
 		lblLogin.setLocation(10, 40);
 		autenticarP.add(lblLogin);
 		
 		loginTxt = new JTextField(20);
 		loginTxt.setSize(200, 20);
-		loginTxt.setLocation(120, 40);
+		loginTxt.setLocation(140, 40);
 		autenticarP.add(loginTxt);
 		
 		lblSenha = new JLabel("Senha:");
-		lblSenha.setSize(70, 12);
+		lblSenha.setSize(70, 15);
+		lblSenha.setFont(new Font("Century Gothic", 0, 14));
 		lblSenha.setLocation(10, 65);
 		autenticarP.add(lblSenha);
 		
 		senhaTxt = new JPasswordField(20);
 		senhaTxt.setSize(200, 20);
-		senhaTxt.setLocation(120, 65);
+		senhaTxt.setLocation(140, 65);
 		autenticarP.add(senhaTxt);
 		
 		lblConfirmarSenha = new JLabel("Confirme a senha:");
-		lblConfirmarSenha.setSize(110, 20);
+		lblConfirmarSenha.setSize(130, 25);
+		lblConfirmarSenha.setFont(new Font("Century Gothic", 0, 14));
 		lblConfirmarSenha.setLocation(10, 87);
 		autenticarP.add(lblConfirmarSenha);
 		
 		confirmarSenhaTxt = new JPasswordField(20);
 		confirmarSenhaTxt.setSize(200, 20);
-		confirmarSenhaTxt.setLocation(120, 90);
+		confirmarSenhaTxt.setLocation(140, 90);
 		autenticarP.add(confirmarSenhaTxt);
 		
 		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setSize(100, 35);
-		btnCadastrar.setLocation(20, 288);
+		btnCadastrar.setSize(110, 35);
+		btnCadastrar.setFont(new Font("Century Gothic", 0, 14));
+		btnCadastrar.setLocation(20, 360);
+		btnCadastrar.setBackground(new Color(102, 102, 102));
 		fundoP.add(btnCadastrar);
 		
 		btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Century Gothic", 0, 14));
 		btnLimpar.setSize(100, 35);
-		btnLimpar.setLocation(150, 288);
+		btnLimpar.setLocation(155, 360);
+		btnLimpar.setBackground(new Color(102,102,102));
 		fundoP.add(btnLimpar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setSize(100, 35);
-		btnCancelar.setLocation(280, 288);
+		btnCancelar.setFont(new Font("Century Gothic", 0, 14));
+		btnCancelar.setLocation(280, 360);
+		btnCancelar.setBackground(new Color(102,102,102));
 		fundoP.add(btnCancelar);
 		
+		
+		tituloP = new JPanel();
+		tituloP.setLayout(null);
+		tituloP.setSize(400, 70);
+		tituloP.setBackground(new Color(102, 102, 102));
+		tituloP.setLocation(0, 0);
+		
+		lblTitulo = new JLabel("Cadastro");
+		lblTitulo.setLocation(120, 15);
+		lblTitulo.setSize(200, 30);
+		lblTitulo.setFont(new Font("Century Gothic",Font.BOLD,36));
+		tituloP.add(lblTitulo);
+		
+		fundoP.add(tituloP);
 		fundoP.add(dadosP);
 		fundoP.add(autenticarP);
 		add(fundoP);
@@ -171,6 +202,7 @@ public class CadastroPassageiro extends JFrame {
 		
 		
 	}
+	
 	
 	
 	public JTextField getNomeTxt() {

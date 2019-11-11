@@ -12,7 +12,7 @@ public class PassageiroBo {
 
 	public PassageiroBo() {
 		super();
-		this.passageiroDao = passageiroDao;
+		this.passageiroDao = new PassageiroDao();
 	}
 	public boolean cadastrar(Passageiro passageiro) throws ExceptionPassageiro {
 		if(this.validarRegistro(passageiro)) {
