@@ -4,7 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -16,6 +19,8 @@ public class InicioPassageiro extends JPanel {
 	private JLabel lblNomeM;
 	private JLabel lblSobrenome;
 	private JLabel lblSobrenomeM;
+	private JPopupMenu caixa;
+	private JMenuItem verInformacoes;
 	public InicioPassageiro() {
 		
 		
@@ -58,6 +63,10 @@ public class InicioPassageiro extends JPanel {
 		scroll.setLocation(9, 100);
 		add(scroll);
 		
+		caixa = new JPopupMenu();
+		verInformacoes = new JMenuItem("Ver informações");
+		caixa.add(verInformacoes);
+		
 	}
 	public JLabel getLblNome() {
 		return lblNome;
@@ -85,6 +94,12 @@ public class InicioPassageiro extends JPanel {
 	}
 	public JTable getjTableViagens() {
 		return jTableViagens;
+	}
+	public JPopupMenu getCaixa() {
+		return caixa;
+	}
+	public JMenuItem getVerInformacoes() {
+		return verInformacoes;
 	}
 	
 	

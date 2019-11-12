@@ -38,8 +38,14 @@ public class PassageiroDao {
 		return BaseDadosPassageiro.getPassageiros();
 	}
 	public boolean editar(Passageiro passageiroAntigo,Passageiro passageiroNovo) {
-		this.removerCpf(passageiroAntigo.getCpf());
-		this.cadastrar(passageiroNovo);
+		passageiroAntigo.setNome(passageiroNovo.getNome());
+		passageiroAntigo.setSobrenome(passageiroNovo.getSobrenome());
+		passageiroAntigo.setCpf(passageiroNovo.getCpf());
+		passageiroAntigo.setEmail(passageiroNovo.getEmail());
+		passageiroAntigo.setTelefone(passageiroNovo.getTelefone());
+		passageiroAntigo.setLogin(passageiroNovo.getLogin());
+		passageiroAntigo.setSenha(passageiroNovo.getSenha());
+		
 		return true;
 	}
 	

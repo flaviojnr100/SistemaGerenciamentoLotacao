@@ -14,6 +14,7 @@ import view.CadastroPassageiro;
 import view.ConsultarPassageiro;
 import view.DashBoardPassageiro;
 import view.EditarPassageiro;
+import view.InformacoesViagem;
 import view.TelaLoginPassageiro;
 
 public class App {
@@ -30,8 +31,9 @@ public class App {
 		DashBoardPassageiro dashPassageiro = new DashBoardPassageiro();
 		CadastroPassageiro cPassageiro = new CadastroPassageiro();
 		TelaLoginPassageiro loginPassageiro = new TelaLoginPassageiro();
+		InformacoesViagem informacoes = new InformacoesViagem();
 		
-		ControllerDashBoardPassageiro cDash = new ControllerDashBoardPassageiro(dashPassageiro,loginPassageiro);
+		ControllerDashBoardPassageiro cDash = new ControllerDashBoardPassageiro(dashPassageiro,loginPassageiro,informacoes);
 		new ControllerCadastroPassageiro(cPassageiro);
 		new ControllerTelaLoginPassageiro(loginPassageiro,cPassageiro,dashPassageiro);
 		loginPassageiro.setVisible(true);

@@ -23,11 +23,11 @@ public class PassageiroBo {
 		
 	}
 	public Passageiro consultarCpf(String cpf){
-		//if(!cpf.equals("") && cpf.length() == 14) {
+		if(!cpf.equals("")) {
 			return passageiroDao.consultarCpf(cpf);
 			
-		//}
-		//return null;
+		}
+		return null;
 		
 		
 	}
@@ -47,16 +47,14 @@ public class PassageiroBo {
 	
 	public boolean editar(Passageiro passageiroAntigo,Passageiro passageiroNovo){
 		//if(this.validarRegistro(passageiroAntigo)) {
-			this.removerCpf(passageiroAntigo.getCpf());
-			this.cadastrar(passageiroNovo);
-			return true;
+			return passageiroDao.editar(passageiroAntigo, passageiroNovo);
 		//}
 		//return false;
 		
 	}
 	public boolean validarRegistro(Passageiro passageiro) {
 		for(Passageiro p:BaseDadosPassageiro.getPassageiros()) {
-			if(passageiro.getCpf().length()==14) {
+			if(passageiro.getCpf().equals(p.getCpf())) {
 				return false;
 			}
 		}

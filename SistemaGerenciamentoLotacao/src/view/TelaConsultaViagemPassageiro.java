@@ -101,7 +101,7 @@ public class TelaConsultaViagemPassageiro extends JPanel implements Observer{
 		panel.add(btnBuscar);
 		
 		Object[][] modelo = new Object[100][7];
-		Object[] colunas = {"Motorista","Data","Horário de Saída","Local de Saída","Destino","Vagas Disponíveis","Valor"};
+		Object[] colunas = {"Motorista","Data","Destino","Local de Saída","Horário de Saída","Vagas Disponíveis","Valor"};
 		table = new JTable(modelo, colunas);
 		JScrollPane scroll = new JScrollPane(table);
 		scroll.setSize(520, 400);
@@ -125,7 +125,7 @@ public class TelaConsultaViagemPassageiro extends JPanel implements Observer{
 		caixa.add(jMenuSair);
 		
 		
-		
+		table.setRowSelectionInterval(0, 0);
 		add(fundoP);
 		
 		//setVisible(true);
@@ -194,6 +194,12 @@ public class TelaConsultaViagemPassageiro extends JPanel implements Observer{
 			
 			obj.limparDados();
 			obj.colocarDados();
+			
+		}
+		if(arg0 instanceof ControllerDashBoardPassageiro && arg1.equals("busca")) {
+			ControllerDashBoardPassageiro obj =((ControllerDashBoardPassageiro)arg0); 
+			obj.limparDados();
+			obj.colocarDadosLike();
 			
 		}
 		

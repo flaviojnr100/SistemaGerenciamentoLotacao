@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 
@@ -34,6 +36,9 @@ public class ControllerTelaLoginPassageiro {
 		tela.getBtnEsqueci().addActionListener(new Botoes());
 		tela.getBtnEntrar().addActionListener(new Botoes());
 		
+		tela.getLoginTxt().addKeyListener(new EventoTeclado());
+		tela.getSenhaTxt().addKeyListener(new EventoTeclado());
+		tela.getBtnEntrar().addKeyListener(new EventoTeclado());
 	}
 	
 	private class Botoes implements ActionListener{
@@ -93,6 +98,30 @@ public class ControllerTelaLoginPassageiro {
 					}
 				 
 			}
+			
+		}}
+	private class EventoTeclado implements KeyListener{
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(tela.getLoginTxt().hasFocus() || tela.getSenhaTxt().hasFocus() || tela.getBtnEntrar().hasFocus()) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					tela.getBtnEntrar().doClick();
+				}
+				
+			}
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
 			
 		}}
 }
