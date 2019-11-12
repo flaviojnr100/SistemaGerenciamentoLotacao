@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<list>
+  <model.vo.Passageiro>
+    <nome>Flavio</nome>
+    <sobrenome>cordeiro</sobrenome>
+    <cpf>12345678912</cpf>
+    <email>sdfgsdgsdg</email>
+    <telefone>52543534534</telefone>
+    <login>flaviojr12</login>
+    <senha>123</senha>
+    <viagens/>
+  </model.vo.Passageiro>
+  <model.vo.Passageiro>
+    <nome>dgdf</nome>
+    <sobrenome>fdgdfg</sobrenome>
+    <cpf>56435646</cpf>
+    <email>456456</email>
+    <telefone>546456</telefone>
+    <login>j1</login>
+    <senha>1</senha>
+    <viagens/>
+  </model.vo.Passageiro>
+  <model.vo.Passageiro>
+    <nome>j2</nome>
+    <sobrenome>gfd</sobrenome>
+    <cpf>gdfg</cpf>
+    <email>dfg</email>
+    <telefone>dfgdfg</telefone>
+    <login>j2</login>
+    <senha>1</senha>
+    <viagens/>
+  </model.vo.Passageiro>
+</list>
